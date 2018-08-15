@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态资源视图 , UI By 妹子UI</title>
+    <link href="/assets/css/amazeui.min.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<h3>Hello Spring-boot WebFlux</h3>
+<doc>
+    <a target="_blank" href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux">文档地址</a>
+</doc>
+<a href="#" data-url="/demoController/getView" data-param="name=hello-thymeleaf&param=111" data-type="GET">Get Request</a>
+<a href="#" data-url="/demoController/postParam" data-param="name=222&param=220" data-type="POST">Post Request</a>
+<a href="#" data-url="/demoController/deleteDemo?id=333" data-type="DELETE">Delete Request</a>
+<a href="#" data-url="/demoController/updateDemo" data-param="data=444" data-type="PUT">Put Request</a>
+<br>
+<a href="#" data-url="/server/startServer" data-param="data=444" data-type="PUT">startServer</a>
+<br>
+<a href="#" data-url="/server/rpcDemo?parkingId=1" data-param="data=444" data-type="PUT">rpc-client1</a>
+<br>
+<a href="#" data-url="/server/rpcDemo?parkingId=2" data-param="data=444" data-type="PUT">rpc-client2</a>
+<br>
+<a href="#" data-url="/fee/queryParkingInfo?parkingId=1" data-param="data=444" data-type="PUT">rpctest</a>
+
+<script src="/assets/js/jquery.min.js" language="JavaScript" charset="UTF-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document.body).on("click", "a", function () {
+            $.ajax({
+                url: $(this).data("url"),
+                type: $(this).data("type"),
+                data: $(this).data("param"),
+            }).done(function (result) {
+                // alert(result);
+                //写入
+                document.write(result);
+            }).fail(function (e) {
+                // alert("request error : " + e);
+            });
+        });
+    });
+</script>
+</body>
+</html>

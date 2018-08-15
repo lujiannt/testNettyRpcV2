@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf template demo , UI By 妹子UI</title>
+    <link th:replace="common/css :: copy" />
+</head>
+<body>
+    <h3>thymeleaf view</h3>
+    <h4 class="am-text-danger" th:text="${textParam}">取餐</h4>
+
+    <script th:replace="common/js :: copy" />
+</body>
+</html>

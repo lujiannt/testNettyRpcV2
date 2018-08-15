@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESTFul Demo ，UI By 妹子UI</title>
+    <link href="/assets/css/amazeui.min.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+<h3>Hello Spring-boot RESTFul Style</h3>
+<a href="#" data-url="/RESTFulController" data-param="param=hello-thymeleaf" data-type="GET">Get Request</a>
+<a href="#" data-url="/RESTFulController" data-param="param=222&param=220" data-type="POST">Post Request</a>
+<a href="#" data-url="/RESTFulController?param=333" data-type="DELETE">Delete Request</a>
+<a href="#" data-url="/RESTFulController" data-param="param=444" data-type="PUT">Put Request</a>
+
+<script src="/assets/js/jquery.min.js" language="JavaScript" charset="UTF-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $(document.body).on("click", "a", function () {
+            $.ajax({
+                url: $(this).data("url"),
+                type: $(this).data("type"),
+                data: $(this).data("param"),
+            }).done(function (result) {
+                alert(result);
+            }).fail(function (e) {
+                alert("request error : " + e);
+            });
+        });
+    });
+</script>
+</body>
+</html>
